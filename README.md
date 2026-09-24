@@ -29,7 +29,7 @@ O build é gerado em `dist/`. A Vercel usa o preset Vite, conforme `vercel.json`
 
 Preço confirmado: R$ 47,00. Checkout: https://pay.cakto.com.br/xzi9krb_1005370.
 
-Ainda pendentes em `config.js`: `FORMA_DE_ACESSO` e `PRAZO_DE_LIBERACAO`. `CONDICOES_DE_GARANTIA` é opcional e permanece omitida enquanto não fornecida.
+Condições confirmadas: acesso digital imediato após a confirmação do pagamento, acesso vitalício e possibilidade de solicitar reembolso em até 7 dias após a compra. Exibidas junto aos dois botões de compra e no FAQ.
 
 O botão de continuidade para o Kit foi removido por solicitação do responsável pela página. O checkout apenas redireciona; não cobra automaticamente nem confirma compra por clique. A página não confirma pagamento pela simples visita.
 

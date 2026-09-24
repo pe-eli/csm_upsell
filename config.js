@@ -5,7 +5,7 @@
 export default Object.freeze({
   PRECO_UPSELL: 47, // Preço adicional confirmado, em reais.
   URL_CHECKOUT_UPSELL: "https://pay.cakto.com.br/xzi9krb_1005370",
-  FORMA_DE_ACESSO: "",
-  PRAZO_DE_LIBERACAO: "",
-  CONDICOES_DE_GARANTIA: "" // Opcional. Omitida da página quando não fornecida.
+  FORMA_DE_ACESSO: "Acesso digital vitalício ao método.",
+  PRAZO_DE_LIBERACAO: "Imediato após a confirmação do pagamento",
+  CONDICOES_DE_GARANTIA: "Você pode solicitar reembolso em até 7 dias após a compra."
 });
