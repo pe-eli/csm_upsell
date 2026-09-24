@@ -42,3 +42,20 @@ Repositório: https://github.com/pe-eli/csm_upsell
 Projeto Vercel: `csm-upsell`, conectado ao repositório. Branch de produção: `main`.
 
 Arquivos `.env*`, `.vercel`, dependências e builds são ignorados no Git. `config.js` é público no navegador e não deve conter credenciais.
+
+## Pixel da Meta
+
+Pixel `1120520213871385`: código-base assíncrono em `index.html`, com `PageView` e fallback `noscript`. `src/meta-pixel.js` envia `ViewContent` após a renderização da oferta, com produto `metodo_emprego_rapido`, valor 47 e moeda BRL. O estado por documento evita repetições no StrictMode, em novas renderizações e remontagens. Recarregar/navegar para um novo documento gera uma nova visualização.
+
+Antes da instalação, a inspeção do código e do site publicado não encontrou `fbq`, gerenciador de tags ou requisições da Meta. O carregador oficial reutiliza `fbq` se disponível. Não instale uma segunda tag pelo GTM ou outro integrador. Não existem eventos de compra ou checkout nos botões. A configuração automática do Pixel está desativada nesta instalação (`autoConfig: false`).
+
+No Gerenciador de Eventos da Meta, confirme o recebimento em Testar Eventos e confira se há regras externas da Ferramenta de Configuração de Eventos ou permissões de tráfego para o domínio. Checkout e pagamento continuam sob responsabilidade da Cakto; sua configuração externa não foi alterada.
+
+Testes de rastreamento:
+
+```sh
+npx playwright install chromium
+npm test
+```
+
+Também é possível usar Chrome instalado, definindo `PLAYWRIGHT_CHANNEL=chrome`. Os testes interceptam a Meta e o checkout para conferir eventos e navegação sem gerar compras nem eventos de teste reais.

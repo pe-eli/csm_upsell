@@ -8,6 +8,8 @@ desktop.png
 mobile.png
 mobile-full.png
 verification-*.png
+test-results/
+playwright-report/
 
 .vercel
 .env*

@@ -1,4 +1,6 @@
+import { useEffect } from 'react';
 import config from '../config.js';
+import { trackOfferView } from './meta-pixel.js';
 
 function safeUrl(value) {
   if (typeof value !== 'string' || !value || /[\s\\\[\]]/.test(value)) return undefined;
@@ -25,6 +27,10 @@ function KitLink() {
 }
 
 export default function App() {
+  useEffect(() => {
+    trackOfferView();
+  }, []);
+
   return <>
 
   <a className="skip-link" href="#conteudo">Pular para o conteúdo</a>
