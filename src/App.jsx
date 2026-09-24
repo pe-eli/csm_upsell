@@ -10,11 +10,6 @@ function safeUrl(value) {
 const priceValid = Number.isFinite(config.PRECO_UPSELL) && config.PRECO_UPSELL > 0;
 const price = priceValid ? config.PRECO_UPSELL.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' }) : 'Preço a confirmar';
 const checkout = priceValid ? safeUrl(config.URL_CHECKOUT_UPSELL) : undefined;
-const pending = [
-  !checkout && 'Preço e checkout do método',
-  !config.FORMA_DE_ACESSO && '[FORMA_DE_ACESSO]',
-  !config.PRAZO_DE_LIBERACAO && '[PRAZO_DE_LIBERAÇÃO]',
-].filter(Boolean);
 
 function PurchaseLink() {
   const buttonPrice = priceValid ? config.PRECO_UPSELL.toLocaleString('pt-BR', { maximumFractionDigits: 2 }) : '—';
@@ -68,7 +63,6 @@ export default function App() {
           <strong>Escrito por uma recrutadora.</strong>
           <p>Com vasta experiência em entrevistas e contratações.</p>
         </div>
-        <p className="mockup-note">Representação ilustrativa da capa.</p>
       </div>
     </section>
 
@@ -95,7 +89,7 @@ export default function App() {
 
     <section className="offer-section section wrap" aria-labelledby="oferta-titulo">
       <div className="offer-intro"><p className="eyebrow">LEVE ESSE PRÓXIMO PASSO COM VOCÊ</p><h2 id="oferta-titulo">Já que você está cuidando do currículo, prepare também o próximo passo<span className="green-period">.</span></h2><p>Adicione o método ao que você já escolheu e siga com os materiais do Kit e uma orientação mais ampla para buscar vagas, apresentar sua trajetória e se preparar para entrevistas.</p><div className="offer-note"><span aria-hidden="true">↗</span><p>Você escolhe como continuar.<br /><strong>Seu Kit pode ser usado independentemente.</strong></p></div></div>
-      <div className="offer-card"><div className="offer-card-top"><span className="small-label">COMPLEMENTO OPCIONAL</span><span className="format-pill">Método digital · 39 páginas</span></div><h3>Método Emprego Rápido</h3><p className="offer-author">Escrito por uma recrutadora com vasta experiência em entrevistas e contratações.</p><p className="offer-summary">Objetivo profissional, currículo, LinkedIn, oportunidades, entrevistas e desenvolvimento após a contratação.</p><div className="offer-divider"></div><p className="price">Adicione o método por <strong data-price>{price}</strong></p><p className="price-note">Compra adicional e opcional. Seu acesso ao Kit Currículo Sob Medida permanece independente.</p><p className="access">Forma de acesso: <span data-access>{config.FORMA_DE_ACESSO || "[FORMA_DE_ACESSO]"}</span></p>{config.CONDICOES_DE_GARANTIA && <p className="access">{config.CONDICOES_DE_GARANTIA}</p>}<PurchaseLink /><p className="micro">A compra do método é opcional e não altera seu acesso ao Kit.</p></div>
+      <div className="offer-card"><div className="offer-card-top"><span className="small-label">COMPLEMENTO OPCIONAL</span><span className="format-pill">Método digital · 39 páginas</span></div><h3>Método Emprego Rápido</h3><p className="offer-author">Escrito por uma recrutadora com vasta experiência em entrevistas e contratações.</p><p className="offer-summary">Objetivo profissional, currículo, LinkedIn, oportunidades, entrevistas e desenvolvimento após a contratação.</p><div className="offer-divider"></div><p className="price">Adicione o método por <strong data-price>{price}</strong></p><p className="price-note">Compra adicional e opcional. Seu acesso ao Kit Currículo Sob Medida permanece independente.</p>{config.FORMA_DE_ACESSO && <p className="access">{config.FORMA_DE_ACESSO}</p>}{config.CONDICOES_DE_GARANTIA && <p className="access">{config.CONDICOES_DE_GARANTIA}</p>}<PurchaseLink /><p className="micro">A compra do método é opcional e não altera seu acesso ao Kit.</p></div>
     </section>
 
     <section className="faq section wrap" aria-labelledby="faq-titulo"><div><p className="eyebrow">ANTES DE DECIDIR</p><h2 id="faq-titulo">Alguma dúvida?</h2><p>Respostas diretas para você<br />escolher com tranquilidade.</p></div><div className="questions">
@@ -103,11 +97,10 @@ export default function App() {
       <details><summary>Preciso comprar o método para usar o Kit?<span aria-hidden="true">+</span></summary><p>Não. O Kit pode ser usado independentemente. O método é um complemento opcional e não altera seu acesso aos materiais do Kit.</p></details>
       <details><summary>Qual é o formato do método?<span aria-hidden="true">+</span></summary><p>O método é um material de leitura digital de 39 páginas. Não inclui aulas nem acompanhamento individual nesta oferta.</p></details>
       <details><summary>O método garante emprego?<span aria-hidden="true">+</span></summary><p>Não. O conteúdo orienta a preparação e a busca; decisões de contratação e prazos dependem de diversos fatores. Método Emprego Rápido é o nome do produto, não uma promessa de contratação em determinado prazo.</p></details>
-      <details><summary>Como recebo o método?<span aria-hidden="true">+</span></summary><p>Forma de acesso: <span data-access>{config.FORMA_DE_ACESSO || "[FORMA_DE_ACESSO]"}</span>.<br />Prazo de liberação: <span data-release>{config.PRAZO_DE_LIBERACAO || "[PRAZO_DE_LIBERAÇÃO]"}</span>.</p></details>
+      {config.FORMA_DE_ACESSO && config.PRAZO_DE_LIBERACAO && <details><summary>Como recebo o método?<span aria-hidden="true">+</span></summary><p>{config.FORMA_DE_ACESSO}<br />Prazo de liberação: {config.PRAZO_DE_LIBERACAO}.</p></details>}
     </div></section>
   </main>
   <footer className="wrap"><div className="footer-brand"><span aria-hidden="true">✳</span> Método Emprego Rápido</div><p>Um complemento para sua trajetória profissional.</p><span>Método digital · 39 páginas</span></footer>
-  {pending.length > 0 && <aside className="review-note wrap" id="revisao" aria-label="Pendências da versão de revisão"><strong>Versão de revisão</strong><p id="review-message">Campos pendentes: {pending.join(', ')}.</p></aside>}
 
   </>;
 }
