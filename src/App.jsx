@@ -10,10 +10,8 @@ function safeUrl(value) {
 const priceValid = Number.isFinite(config.PRECO_UPSELL) && config.PRECO_UPSELL > 0;
 const price = priceValid ? config.PRECO_UPSELL.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' }) : 'Preço a confirmar';
 const checkout = priceValid ? safeUrl(config.URL_CHECKOUT_UPSELL) : undefined;
-const kit = safeUrl(config.URL_CONTINUAR_KIT);
 const pending = [
   !checkout && 'Preço e checkout do método',
-  !kit && '[URL_CONTINUAR_KIT]',
   !config.FORMA_DE_ACESSO && '[FORMA_DE_ACESSO]',
   !config.PRAZO_DE_LIBERACAO && '[PRAZO_DE_LIBERAÇÃO]',
 ].filter(Boolean);
@@ -21,9 +19,6 @@ const pending = [
 function PurchaseLink() {
   const buttonPrice = priceValid ? config.PRECO_UPSELL.toLocaleString('pt-BR', { maximumFractionDigits: 2 }) : '—';
   return <a className="button" data-checkout href={checkout} aria-disabled={checkout ? undefined : true}>Quero o Método Emprego Rápido por R$ {buttonPrice} <span aria-hidden="true">↗</span></a>;
-}
-function KitLink() {
-  return <a className="decline" data-kit href={kit} role={kit ? undefined : 'link'} tabIndex={kit ? undefined : 0} aria-disabled={kit ? undefined : true} aria-describedby={kit ? undefined : 'review-message'} title={kit ? undefined : 'Destino de acesso ao Kit ainda a definir.'}>Continuar apenas com meu Kit <span aria-hidden="true">→</span></a>;
 }
 
 export default function App() {
@@ -51,7 +46,6 @@ export default function App() {
         <div className="decision">
           <p className="price">Adicione o método por <strong data-price>{price}</strong></p><p className="price-note">Compra adicional e opcional. Seu acesso ao Kit Currículo Sob Medida permanece independente.</p>
           <PurchaseLink />
-          <KitLink />
           <p className="micro">A compra do método é opcional e não altera seu acesso ao Kit.</p>
         </div>
       </div>
@@ -101,7 +95,7 @@ export default function App() {
 
     <section className="offer-section section wrap" aria-labelledby="oferta-titulo">
       <div className="offer-intro"><p className="eyebrow">LEVE ESSE PRÓXIMO PASSO COM VOCÊ</p><h2 id="oferta-titulo">Já que você está cuidando do currículo, prepare também o próximo passo<span className="green-period">.</span></h2><p>Adicione o método ao que você já escolheu e siga com os materiais do Kit e uma orientação mais ampla para buscar vagas, apresentar sua trajetória e se preparar para entrevistas.</p><div className="offer-note"><span aria-hidden="true">↗</span><p>Você escolhe como continuar.<br /><strong>Seu Kit pode ser usado independentemente.</strong></p></div></div>
-      <div className="offer-card"><div className="offer-card-top"><span className="small-label">COMPLEMENTO OPCIONAL</span><span className="format-pill">Método digital · 39 páginas</span></div><h3>Método Emprego Rápido</h3><p className="offer-author">Escrito por uma recrutadora com vasta experiência em entrevistas e contratações.</p><p className="offer-summary">Objetivo profissional, currículo, LinkedIn, oportunidades, entrevistas e desenvolvimento após a contratação.</p><div className="offer-divider"></div><p className="price">Adicione o método por <strong data-price>{price}</strong></p><p className="price-note">Compra adicional e opcional. Seu acesso ao Kit Currículo Sob Medida permanece independente.</p><p className="access">Forma de acesso: <span data-access>{config.FORMA_DE_ACESSO || "[FORMA_DE_ACESSO]"}</span></p>{config.CONDICOES_DE_GARANTIA && <p className="access">{config.CONDICOES_DE_GARANTIA}</p>}<PurchaseLink /><KitLink /><p className="micro">A compra do método é opcional e não altera seu acesso ao Kit.</p></div>
+      <div className="offer-card"><div className="offer-card-top"><span className="small-label">COMPLEMENTO OPCIONAL</span><span className="format-pill">Método digital · 39 páginas</span></div><h3>Método Emprego Rápido</h3><p className="offer-author">Escrito por uma recrutadora com vasta experiência em entrevistas e contratações.</p><p className="offer-summary">Objetivo profissional, currículo, LinkedIn, oportunidades, entrevistas e desenvolvimento após a contratação.</p><div className="offer-divider"></div><p className="price">Adicione o método por <strong data-price>{price}</strong></p><p className="price-note">Compra adicional e opcional. Seu acesso ao Kit Currículo Sob Medida permanece independente.</p><p className="access">Forma de acesso: <span data-access>{config.FORMA_DE_ACESSO || "[FORMA_DE_ACESSO]"}</span></p>{config.CONDICOES_DE_GARANTIA && <p className="access">{config.CONDICOES_DE_GARANTIA}</p>}<PurchaseLink /><p className="micro">A compra do método é opcional e não altera seu acesso ao Kit.</p></div>
     </section>
 
     <section className="faq section wrap" aria-labelledby="faq-titulo"><div><p className="eyebrow">ANTES DE DECIDIR</p><h2 id="faq-titulo">Alguma dúvida?</h2><p>Respostas diretas para você<br />escolher com tranquilidade.</p></div><div className="questions">
@@ -113,7 +107,7 @@ export default function App() {
     </div></section>
   </main>
   <footer className="wrap"><div className="footer-brand"><span aria-hidden="true">✳</span> Método Emprego Rápido</div><p>Um complemento para sua trajetória profissional.</p><span>Método digital · 39 páginas</span></footer>
-  {pending.length > 0 && <aside className="review-note wrap" id="revisao" aria-label="Pendências da versão de revisão"><strong>Versão de revisão</strong><p id="review-message">Campos pendentes: {pending.join(', ')}. O link de continuidade para o Kit será habilitado quando seu destino for informado.</p></aside>}
+  {pending.length > 0 && <aside className="review-note wrap" id="revisao" aria-label="Pendências da versão de revisão"><strong>Versão de revisão</strong><p id="review-message">Campos pendentes: {pending.join(', ')}.</p></aside>}
 
   </>;
 }
