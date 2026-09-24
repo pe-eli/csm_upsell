@@ -34,18 +34,18 @@ export default function App() {
   return <>
 
   <a className="skip-link" href="#conteudo">Pular para o conteúdo</a>
-  <div className="topbar"><span className="little-star" aria-hidden="true">✳</span> Uma opção para complementar seu Kit Currículo Sob Medida</div>
+  <div className="topbar"><span className="little-star" aria-hidden="true">✳</span> Antes de seguir: um complemento para o próximo passo da sua busca</div>
   <main id="conteudo">
     <section className="hero wrap" aria-labelledby="titulo">
       <div className="hero-copy">
-        <p className="eyebrow"><span className="dot"></span> EBOOK MÉTODO EMPREGO RÁPIDO</p>
-        <h1 id="titulo">Seu próximo passo: <em>organizar a busca por vagas</em> e se preparar para as entrevistas.</h1>
-        <p className="intro">Complemente seu Kit Currículo Sob Medida com um ebook de 39 páginas sobre objetivo profissional, LinkedIn, busca de oportunidades e preparação para entrevistas.</p>
-        <p className="optional">O ebook abaixo é uma compra adicional e opcional. Você pode continuar apenas com o seu Kit.</p>
+        <p className="eyebrow"><span className="dot"></span> SEU KIT É O PONTO DE PARTIDA</p>
+        <h1 id="titulo">Seu currículo é o começo. <em>Agora, prepare-se para o que vem depois.</em></h1>
+        <p className="intro">Você escolheu o Kit Currículo Sob Medida para cuidar da sua candidatura. Aproveite esse passo para ampliar sua preparação: adicione o <strong>Método Emprego Rápido</strong>, um ebook de 39 páginas que conecta a busca por vagas à preparação para entrevistas.</p>
+        <p className="optional">Um complemento para a escolha que você já fez. A compra é adicional e opcional; você pode continuar apenas com o Kit.</p>
         <ul className="benefits">
-          <li>Mais clareza sobre quais oportunidades buscar.</li>
-          <li>Orientação para apresentar sua trajetória no LinkedIn.</li>
-          <li>Um caminho para estruturar suas respostas nas entrevistas.</li>
+          <li>Depois do currículo: saiba onde concentrar sua busca.</li>
+          <li>No LinkedIn: apresente sua trajetória com mais clareza.</li>
+          <li>Na entrevista: organize exemplos antes de precisar responder.</li>
         </ul>
         <div className="decision">
           <p className="price">Adicione o ebook por <strong data-price>{price}</strong></p><p className="price-note">Compra adicional e opcional. Seu acesso ao Kit Currículo Sob Medida permanece independente.</p>
@@ -55,7 +55,7 @@ export default function App() {
         </div>
       </div>
       <div className="hero-visual">
-        <div className="visual-top"><span>UM GUIA PARA SUA PRÓXIMA ETAPA</span><span aria-hidden="true">↗</span></div>
+        <div className="visual-top"><span>COMBINE COM O SEU KIT DE CURRÍCULO</span><span aria-hidden="true">↗</span></div>
         <div className="orbit orbit-one" aria-hidden="true"></div><div className="orbit orbit-two" aria-hidden="true"></div>
         <div className="book" role="img" aria-label="Representação tipográfica da capa: Método Emprego Rápido, ebook digital de 39 páginas.">
           <div className="book-spine" aria-hidden="true"></div>
@@ -74,8 +74,8 @@ export default function App() {
     </section>
 
     <section className="bridge section wrap" aria-labelledby="ponte-titulo">
-      <div className="section-heading"><p className="eyebrow">SEU KIT + UM NOVO OLHAR</p><h2 id="ponte-titulo">O currículo é uma etapa.<br /><span>A busca continua depois dele.</span></h2></div>
-      <div className="bridge-copy"><p>Com o Kit Currículo Sob Medida, você tem materiais para adaptar seu currículo a cada oportunidade. O Método Emprego Rápido amplia essa preparação com orientações sobre onde buscar vagas, como apresentar sua trajetória no LinkedIn e como se preparar para conversar com recrutadores.</p></div>
+      <div className="section-heading"><p className="eyebrow">PENSE NO QUE VEM DEPOIS</p><h2 id="ponte-titulo">E quando o recrutador chamar?<br /><span>Comece a se preparar agora.</span></h2></div>
+      <div className="bridge-copy"><p>Quais experiências você vai destacar? Como vai contar seus resultados? Seu Kit ajuda a adaptar e revisar o currículo. O ebook complementa esse trabalho com orientações para apresentar sua trajetória, encontrar oportunidades e organizar respostas para as entrevistas. Aproveite o momento de cuidar do currículo para pensar também nessas próximas conversas.</p></div>
       <div className="bridge-cards">
         <article className="bridge-card"><span className="tile-icon" aria-hidden="true">▤</span><div><p className="small-label">SEUS MATERIAIS PRÁTICOS</p><h3>Kit Currículo Sob Medida</h3><p>Materiais para adaptar e revisar o currículo.</p><p className="card-detail">Modelo editável, roteiro de análise da vaga, ficha de resultados e conquistas e checklist final da candidatura.</p></div></article>
         <article className="bridge-card complement"><span className="tile-icon" aria-hidden="true">↗</span><div><p className="small-label">SEU COMPLEMENTO OPCIONAL</p><h3>Método Emprego Rápido</h3><p>Orientação para organizar a busca e se preparar para as próximas etapas.</p><p className="card-detail">Um ebook para conectar objetivo profissional, oportunidades e preparação para entrevistas.</p></div></article>
@@ -95,7 +95,7 @@ export default function App() {
     </div></section>
 
     <section className="offer-section section wrap" aria-labelledby="oferta-titulo">
-      <div className="offer-intro"><p className="eyebrow">PARA SEGUIR COM MAIS DIREÇÃO</p><h2 id="oferta-titulo">Adicione orientação para os próximos passos da sua busca<span className="green-period">.</span></h2><p>Tenha seus materiais de currículo e uma orientação mais ampla para seguir com a busca.</p><div className="offer-note"><span aria-hidden="true">↗</span><p>Você escolhe como continuar.<br /><strong>Seu Kit pode ser usado independentemente.</strong></p></div></div>
+      <div className="offer-intro"><p className="eyebrow">LEVE ESSE PRÓXIMO PASSO COM VOCÊ</p><h2 id="oferta-titulo">Já que você está cuidando do currículo, prepare também o próximo passo<span className="green-period">.</span></h2><p>Adicione o ebook ao que você já escolheu e siga com os materiais do Kit e uma orientação mais ampla para buscar vagas, apresentar sua trajetória e se preparar para entrevistas.</p><div className="offer-note"><span aria-hidden="true">↗</span><p>Você escolhe como continuar.<br /><strong>Seu Kit pode ser usado independentemente.</strong></p></div></div>
       <div className="offer-card"><div className="offer-card-top"><span className="small-label">COMPLEMENTO OPCIONAL</span><span className="format-pill">Ebook digital · 39 páginas</span></div><h3>Método Emprego Rápido</h3><p className="offer-summary">Objetivo profissional, currículo, LinkedIn, oportunidades, entrevistas e desenvolvimento após a contratação.</p><div className="offer-divider"></div><p className="price">Adicione o ebook por <strong data-price>{price}</strong></p><p className="price-note">Compra adicional e opcional. Seu acesso ao Kit Currículo Sob Medida permanece independente.</p><p className="access">Forma de acesso: <span data-access>{config.FORMA_DE_ACESSO || "[FORMA_DE_ACESSO]"}</span></p>{config.CONDICOES_DE_GARANTIA && <p className="access">{config.CONDICOES_DE_GARANTIA}</p>}<PurchaseLink /><KitLink /><p className="micro">A compra do ebook é opcional e não altera seu acesso ao Kit.</p></div>
     </section>
 
