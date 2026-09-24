@@ -1,5 +1,16 @@
 # Verificação da versão de revisão
 
+## Pixel da Meta — 24/09/2026
+
+- Auditoria anterior à alteração: sem `fbq`, GTM, `dataLayer`, scripts ou requisições da Meta no código e na página publicada.
+- Pixel instalado: `1120520213871385`, bootstrap oficial assíncrono e imagem `noscript` para `PageView`.
+- `npm run build` aprovado; dois testes Playwright aprovados usando Chrome instalado.
+- Testes com a biblioteca da Meta interceptada validaram um `PageView` e um `ViewContent` com os parâmetros solicitados, inclusive em StrictMode, renderizações, remontagens e repetição do bootstrap. Nova navegação gera uma nova dupla de eventos.
+- Fallback `noscript` testado com JavaScript desativado: uma requisição `PageView` com o ID correto.
+- Clique do botão testado com checkout interceptado: navega ao destino correto sem `Purchase`, `InitiateCheckout` ou `AddToCart`. Nenhum pagamento foi realizado.
+- Produção em `https://csm-upsell.vercel.app/`: biblioteca e configuração do Pixel responderam HTTP 200; uma única tag `fbevents.js`; estado da biblioteca identificou o Pixel correto e `eventCount: 2`; sem erros de JavaScript. Ambos os links de compra preservados.
+- Limite da verificação: no navegador automatizado não foram observadas requisições de coleta `/tr`. Portanto, não foi confirmado o recebimento no Gerenciador de Eventos. É necessário conferir em **Testar Eventos** na conta Meta, incluindo permissões de tráfego do domínio e eventuais regras externas. Não há evidência suficiente para atribuir a ausência de coleta a uma configuração específica. A integração Cakto não foi alterada.
+
 ## Atualização comercial
 
 Preço definitivo de R$ 47,00 e checkout https://pay.cakto.com.br/xzi9krb_1005370 configurados. Os dois botões usam “Quero o Método Emprego Rápido por R$ 47”, com o aviso de compra adicional e opcional próximo a cada preço. Verificação do HTML e execução de `config.js`/`app.js` em ambiente DOM simulado confirmaram ambos os links habilitados e a continuidade para o Kit ainda desabilitada por falta de destino. Sintaxe JavaScript validada. Nenhuma compra realizada. As verificações abaixo registram a versão inicial, anterior à definição comercial.
